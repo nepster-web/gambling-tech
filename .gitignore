@@ -1,0 +1,8 @@
+/.idea/
+/composer.lock
+/phpcs.xml
+/vendor/
+/.phpunit.result.cache
+/.php_cs.cache
+/docs/tmp/
+/.coverage.clover

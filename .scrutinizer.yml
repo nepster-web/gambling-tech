@@ -1,0 +1,22 @@
+build:
+  tests:
+    override:
+      - true
+  nodes:
+    analysis:
+      tests:
+        override:
+          - php-scrutinizer-run
+
+filter:
+  excluded_paths:
+    - "docs/*"
+    - "tests/*"
+  dependency_paths:
+    - "vendor/"
+
+tools:
+  external_code_coverage: true
+
+checks:
+  php: true

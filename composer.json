@@ -1,0 +1,48 @@
+{
+  "name": "nepster-web/gambling-tech",
+  "description": "Gambling Algorithms for Certification.",
+  "keywords": [
+    "php",
+    "gambling",
+    "algorithms",
+    "random number generator",
+    "RNG",
+    "provably fair system",
+    "casino"
+  ],
+  "support": {
+    "docs": "https://github.com/nepster-web/gambling-tech/blob/main/docs/guide/README.md",
+    "issues": "https://github.com/nepster-web/gambling-tech/issues",
+    "source": "https://github.com/nepster-web/gambling-tech"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "license": "MIT",
+  "authors": [
+  ],
+  "require": {
+    "php": "^7.4|^8.0"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "^9.5",
+    "friendsofphp/php-cs-fixer": "^v2.19"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gambling\\Tech\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Gambling\\TechTest\\": "tests/"
+    }
+  },
+  "scripts": {
+    "code-style-check": "php vendor/bin/php-cs-fixer fix --verbose --show-progress=dots --dry-run --config=.php_cs.php",
+    "code-style-fix": "php vendor/bin/php-cs-fixer fix --diff --config=.php_cs.php",
+    "test": "php vendor/bin/phpunit --colors=always",
+    "test-coverage": "php vendor/bin/phpunit --coverage-text --coverage-html ./docs/tmp/"
+  }
+}
