@@ -2,10 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Gambling\Tech;
+namespace Gambling\Tech\Dice;
 
 /**
- * Provably fair is an algorithm based on technologies that allow online
+ * RNG with PFS for DICE (in the range from 0 to 99.99)
+ *
+ * Provably fair system is an algorithm based on technologies that allow online
  * randomization to step up and reach a new level of fairness and openness.
  *
  * More about provably fair system (PFS):
@@ -29,10 +31,8 @@ namespace Gambling\Tech;
  *
  *   return (number % 10000) / 100;
  * });
- *
- * alert(luckyNumber({serverSeed, clientSeed, nonce}));
  */
-class DiceTillHundredPfsAlgorithm
+class TillHundredPfsAlgorithm
 {
     /**
      * Generates a number in the range 0 to 99.99
