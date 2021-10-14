@@ -78,35 +78,35 @@ class Random
 
     /**
      * @param int $length
-     * @param string|null $charlist
+     * @param string|null $charList
      * @return string
      * @throws GamblingTechException
      * @throws InvalidArgumentException
      */
-    public static function getString(int $length, ?string $charlist = null): string
+    public static function getString(int $length, ?string $charList = null): string
     {
         if ($length < 1) {
             throw new InvalidArgumentException('Length should be >= 1');
         }
 
-        // charlist is empty or not provided
-        if (empty($charlist)) {
+        // charList is empty or not provided
+        if (empty($charList)) {
             $numBytes = (int)ceil($length * 0.75);
             $bytes = static::getBytes($numBytes);
 
             return mb_substr(rtrim(base64_encode($bytes), '='), 0, $length, '8bit');
         }
 
-        $listLen = mb_strlen($charlist, '8bit');
+        $listLen = mb_strlen($charList, '8bit');
 
         if ($listLen === 1) {
-            return str_repeat($charlist, $length);
+            return str_repeat($charList, $length);
         }
 
         $result = '';
         for ($i = 0; $i < $length; $i++) {
             $pos = static::getInteger(0, $listLen - 1);
-            $result .= $charlist[$pos];
+            $result .= $charList[$pos];
         }
 
         return $result;

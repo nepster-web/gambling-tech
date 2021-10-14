@@ -6,9 +6,13 @@ namespace Gambling\TechTest;
 
 use PHPUnit\Framework\TestCase;
 use Gambling\Tech\FisherYatesShuffle;
+use Gambling\Tech\Exception\GamblingTechException;
 
 class FisherYatesShuffleTest extends TestCase
 {
+    /**
+     * @throws GamblingTechException
+     */
     public function testSuccessSendMessage(): void
     {
         $array = [

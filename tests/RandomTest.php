@@ -7,9 +7,13 @@ namespace Gambling\TechTest;
 use Gambling\Tech\Random;
 use PHPUnit\Framework\TestCase;
 use Gambling\Tech\Exception\GamblingTechException;
+use Gambling\Tech\Exception\InvalidArgumentException;
 
 class RandomTest extends TestCase
 {
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomBytes(): void
     {
         $bytes = [];
@@ -21,6 +25,9 @@ class RandomTest extends TestCase
         self::assertTrue(count(array_unique($bytes)) > 5);
     }
 
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomBytesLength(): void
     {
         self::assertEquals(1, mb_strlen(Random::getBytes(1), '8bit'));
@@ -35,9 +42,12 @@ class RandomTest extends TestCase
     {
         $this->expectException(GamblingTechException::class);
 
-        $bytes = Random::getBytes(-1);
+        Random::getBytes(-1);
     }
 
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomInteger(): void
     {
         $numbers = [];
@@ -53,7 +63,7 @@ class RandomTest extends TestCase
     {
         $this->expectException(GamblingTechException::class);
 
-        $number = Random::getInteger(10, 0);
+        Random::getInteger(10, 0);
     }
 
     public function testRandomBoolean(): void
@@ -64,9 +74,12 @@ class RandomTest extends TestCase
             $boolean[] = Random::getBoolean();
         }
 
-        self::assertTrue(count(array_unique($boolean)) === 2);
+        self::assertSame(count(array_unique($boolean)), 2);
     }
 
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomBooleanValue(): void
     {
         $boolean = Random::getBoolean();
@@ -74,6 +87,9 @@ class RandomTest extends TestCase
         self::assertTrue($boolean === true || $boolean === false);
     }
 
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomFloat(): void
     {
         $numbers = [];
@@ -85,6 +101,9 @@ class RandomTest extends TestCase
         self::assertTrue(count(array_unique($numbers)) > 5);
     }
 
+    /**
+     * @throws GamblingTechException
+     */
     public function testRandomString(): void
     {
         $strings = [];
@@ -96,20 +115,27 @@ class RandomTest extends TestCase
         self::assertTrue(count(array_unique($strings)) > 5);
     }
 
+    /**
+     * @throws InvalidArgumentException
+     */
     public function testRandomStringInvalidLength(): void
     {
         $this->expectException(GamblingTechException::class);
 
-        $number = Random::getString(0);
+        Random::getString(0);
     }
 
-    public function testRandomStringWithCharlist(): void
+    /**
+     * @throws InvalidArgumentException
+     * @throws GamblingTechException
+     */
+    public function testRandomStringWithCharList(): void
     {
-        $charlist = str_split('abcde123');
+        $charList = str_split('abcde123');
         $strings = [];
 
         for ($i = 0; $i < 1; ++$i) {
-            $strings[] = Random::getString(8, implode($charlist));
+            $strings[] = Random::getString(8, implode($charList));
         }
 
         $availableChars = true;
@@ -117,7 +143,7 @@ class RandomTest extends TestCase
         foreach ($strings as $string) {
             $length = mb_strlen($string);
             for ($i = 0; $i < $length; ++$i) {
-                $assert = in_array($string[$i], $charlist);
+                $availableChars = in_array($string[$i], $charList, true);
                 if ($availableChars === false) {
                     break;
                 }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Gambling\Tech;
 
-use Exception;
+use Gambling\Tech\Exception\GamblingTechException;
 
 /**
  * The Fisher Yates shuffle, read more about it here
@@ -15,7 +15,7 @@ class FisherYatesShuffle
     /**
      * @param array $array
      * @return array
-     * @throws Exception
+     * @throws GamblingTechException
      */
     public function __invoke(array $array): array
     {

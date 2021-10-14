@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Gambling\TechTest\Dice;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 use Gambling\Tech\Dice\TillHundredPfsAlgorithm;
 
 class TillHundredPfsAlgorithmTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testGenerateRandomFloatValue(): void
     {
         $serverSeed = hash('sha512', random_bytes(32));
@@ -20,6 +24,9 @@ class TillHundredPfsAlgorithmTest extends TestCase
         self::assertIsFloat($number);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testRangeFrom0to100(): void
     {
         $isOutOfRange = false;
@@ -40,6 +47,9 @@ class TillHundredPfsAlgorithmTest extends TestCase
         self::assertFalse($isOutOfRange);
     }
 
+    /**
+     * @throws Exception
+     */
     public function testNoMoreThanATenth(): void
     {
         $isTenth = true;
