@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Gambling\Tech;
 
-use Exception;
+use Throwable;
+use ValueError;
+use Gambling\Tech\Exception\GamblingTechException;
 use Gambling\Tech\Exception\InvalidArgumentException;
 
 class Random
@@ -14,27 +16,43 @@ class Random
      *
      * @param int $length
      * @return string
-     * @throws Exception
+     * @throws GamblingTechException
      */
     public static function getBytes(int $length): string
     {
-        return random_bytes($length);
+        try {
+            return random_bytes($length);
+        } catch (Throwable $e) {
+            if ($e instanceof ValueError) {
+                throw new InvalidArgumentException($e->getMessage(), 0, $e);
+            }
+
+            throw new GamblingTechException($e->getMessage(), 0, $e);
+        }
     }
 
     /**
      * @param int $min
      * @param int $max
      * @return int
-     * @throws Exception
+     * @throws GamblingTechException
      */
     public static function getInteger(int $min, int $max): int
     {
-        return random_int($min, $max);
+        try {
+            return random_int($min, $max);
+        } catch (Throwable $e) {
+            if ($e instanceof ValueError) {
+                throw new InvalidArgumentException($e->getMessage(), 0, $e);
+            }
+
+            throw new GamblingTechException($e->getMessage(), 0, $e);
+        }
     }
 
     /**
      * @return bool
-     * @throws Exception
+     * @throws GamblingTechException
      */
     public static function getBoolean(): bool
     {
@@ -45,7 +63,7 @@ class Random
 
     /**
      * @return float
-     * @throws Exception
+     * @throws GamblingTechException
      */
     public static function getFloat(): float
     {
@@ -60,11 +78,12 @@ class Random
 
     /**
      * @param int $length
-     * @param array $charlist
+     * @param string|null $charlist
      * @return string
-     * @throws Exception
+     * @throws GamblingTechException
+     * @throws InvalidArgumentException
      */
-    public static function getString(int $length, array $charlist = [])
+    public static function getString(int $length, ?string $charlist = null): string
     {
         if ($length < 1) {
             throw new InvalidArgumentException('Length should be >= 1');
