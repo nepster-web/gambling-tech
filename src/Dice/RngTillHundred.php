@@ -32,7 +32,7 @@ namespace Gambling\Tech\Dice;
  *   return (number % 10000) / 100;
  * });
  */
-class TillHundredPfsAlgorithm
+class RngTillHundred
 {
     /**
      * Generates a number in the range 0 to 99.99

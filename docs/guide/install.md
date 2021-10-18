@@ -1,5 +1,5 @@
-Gambling Tech
-=============
+Gambling Tech install
+=====================
 
 Installation recommendations.
 
@@ -8,6 +8,7 @@ Installation recommendations.
 
 * [Guide](./README.md)
 * **[Install](./install.md)**
+* [Algorithms](./algorithms.md)
 
 <br>
 

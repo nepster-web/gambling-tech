@@ -6,7 +6,7 @@ namespace Gambling\TechTest\Dice;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
-use Gambling\Tech\Dice\TillHundredPfsAlgorithm;
+use Gambling\Tech\Dice\RngTillHundred;
 
 class TillHundredPfsAlgorithmTest extends TestCase
 {
@@ -19,7 +19,7 @@ class TillHundredPfsAlgorithmTest extends TestCase
         $clientSeed = random_bytes(7);
         $nonce = 1;
 
-        $number = (new TillHundredPfsAlgorithm)($serverSeed, $clientSeed, $nonce);
+        $number = (new RngTillHundred)($serverSeed, $clientSeed, $nonce);
 
         self::assertIsFloat($number);
     }
@@ -36,7 +36,7 @@ class TillHundredPfsAlgorithmTest extends TestCase
             $clientSeed = random_bytes(7);
             $nonce = random_int(0, 1000);
 
-            $number = (new TillHundredPfsAlgorithm)($serverSeed, $clientSeed, $nonce);
+            $number = (new RngTillHundred)($serverSeed, $clientSeed, $nonce);
 
             if ($number < 0 || $number > 99.99) {
                 $isOutOfRange = true;
@@ -59,7 +59,7 @@ class TillHundredPfsAlgorithmTest extends TestCase
             $clientSeed = random_bytes(7);
             $nonce = random_int(0, 1000);
 
-            $number = (new TillHundredPfsAlgorithm)($serverSeed, $clientSeed, $nonce);
+            $number = (new RngTillHundred)($serverSeed, $clientSeed, $nonce);
 
             if (mb_strlen((string)$number) > 5) {
                 $isTenth = false;
@@ -75,7 +75,7 @@ class TillHundredPfsAlgorithmTest extends TestCase
         $clientSeed = 'my_client_string';
         $nonce = 7;
 
-        $number = (new TillHundredPfsAlgorithm)($serverSeed, $clientSeed, $nonce);
+        $number = (new RngTillHundred)($serverSeed, $clientSeed, $nonce);
 
         self::assertEquals(15.33, $number);
     }

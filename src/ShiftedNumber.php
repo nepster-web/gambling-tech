@@ -4,24 +4,23 @@ declare(strict_types=1);
 
 namespace Gambling\Tech;
 
-class SiftedNumberAlgorithm
+/**
+ * Base value  shifting by hash
+ */
+class ShiftedNumber
 {
     private float $min = 0;
 
     private float $max = 100;
 
-    private string $serverSeed;
-
-    private string $clientSeed;
-
     /**
      * @param float $number
+     * @param string $hash
      * @return int
      */
-    public function __invoke(float $number): int
+    public function __invoke(float $number, string $hash): int
     {
-        $clientHash = $this->getClientHash($number);
-        $shiftValue = $this->getShiftValue($clientHash);
+        $shiftValue = $this->getShiftValue($hash);
 
         return $this->shift($number, $shiftValue);
     }
@@ -62,15 +61,6 @@ class SiftedNumberAlgorithm
         return $number + $shift <= $this->max ?
             $number + $shift :
             $this->min + ($number + $shift - $this->max) - 1;
-    }
-
-    /**
-     * @param float $secret
-     * @return string
-     */
-    protected function getClientHash(float $secret): string
-    {
-        return hash_hmac('sha256', (string)$secret . $this->serverSeed, $this->clientSeed);
     }
 
     /**

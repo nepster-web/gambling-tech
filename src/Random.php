@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace Gambling\Tech;
 
 use Throwable;
-use ValueError;
+use ErrorException;
 use Gambling\Tech\Exception\GamblingTechException;
 use Gambling\Tech\Exception\InvalidArgumentException;
 
+/**
+ * Random generation of values
+ */
 class Random
 {
     /**
@@ -23,7 +26,7 @@ class Random
         try {
             return random_bytes($length);
         } catch (Throwable $e) {
-            if ($e instanceof ValueError) {
+            if ($e instanceof ErrorException) {
                 throw new InvalidArgumentException($e->getMessage(), 0, $e);
             }
 
@@ -42,7 +45,7 @@ class Random
         try {
             return random_int($min, $max);
         } catch (Throwable $e) {
-            if ($e instanceof ValueError) {
+            if ($e instanceof ErrorException) {
                 throw new InvalidArgumentException($e->getMessage(), 0, $e);
             }
 
