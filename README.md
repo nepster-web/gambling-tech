@@ -69,7 +69,7 @@ $shuffled = (new FisherYatesShuffle())($cards);
 $shuffled; // [7, 2, 1, 5, 4, 6, 0, 3]
 ```
 
-Read more about other algorithms in the [documentation](./docs/guide/README.md).
+Read more about other algorithms in the [documentation](./docs/guide/algorithms.md).
 
 
 ### Testing

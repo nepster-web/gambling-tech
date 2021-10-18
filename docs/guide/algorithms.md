@@ -1,8 +1,6 @@
 Gambling Tech algorithms
 ========================
 
-------------------
-
 > These are really fair algorithms!
 
 
@@ -17,7 +15,7 @@ Gambling Tech algorithms
 
 [Random](./random.md) - Generating random values.
 
-[FisherYatesShuffle](./FisherYatesShuffle.md) - The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence—in plain terms, the algorithm shuffles the sequence.
+[FisherYatesShuffle](./FisherYatesShuffle.md) - The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence.
 
 [ShiftedNumber](./ShiftedNumber.md) - Base value shifting by hash.
 
