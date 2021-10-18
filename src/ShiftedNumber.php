@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Gambling\Tech;
 
 /**
- * Base value  shifting by hash
+ * Base value shifting by hash
  */
 class ShiftedNumber
 {

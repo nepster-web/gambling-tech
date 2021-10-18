@@ -1,7 +1,7 @@
 Gambling Tech algorithms
 ========================
 
-**Gambling Tech** - is a library that provides certified casino algorithms.
+------------------
 
 > These are really fair algorithms!
 
@@ -15,13 +15,13 @@ Gambling Tech algorithms
 
 ## Algorithms
 
-[Random](./random.md)
+[Random](./random.md) - Generating random values.
 
-[FisherYatesShuffle](./FisherYatesShuffle.md)
+[FisherYatesShuffle](./FisherYatesShuffle.md) - The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence—in plain terms, the algorithm shuffles the sequence.
 
-[ShiftedNumber](./ShiftedNumber.md)
+[ShiftedNumber](./ShiftedNumber.md) - Base value shifting by hash.
 
-[dice/RngTillHundred.md](./dice/RngTillHundred.md)
+[dice/RngTillHundred.md](./dice/RngTillHundred.md) - RNG algorithm for dice with provable fairness.
 
 <br>
 
