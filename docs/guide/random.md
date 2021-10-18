@@ -34,4 +34,4 @@ Random::getString(16); // 3Q989ujqa3CAZl0c
 
 <br>
 
-[Go back](https://github.com/nepster-web/gambling-tech)
+[Algorithms](https://github.com/nepster-web/gambling-tech/blob/main/docs/guide/algorithms.md) | [Go back](https://github.com/nepster-web/gambling-tech)

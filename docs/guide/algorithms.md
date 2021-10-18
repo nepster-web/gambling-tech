@@ -15,7 +15,7 @@ Gambling Tech algorithms
 
 [Random](./random.md) - Generating random values.
 
-[FisherYatesShuffle](./FisherYatesShuffle.md) - The Fisher–Yates shuffle is an algorithm for generating a random permutation of a finite sequence.
+[FisherYatesShuffle](./FisherYatesShuffle.md) - The Fisher-Yates shuffle is an algorithm for generating a random permutation of a finite sequence.
 
 [ShiftedNumber](./ShiftedNumber.md) - Base value shifting by hash.
 
@@ -23,4 +23,4 @@ Gambling Tech algorithms
 
 <br>
 
-[Go back](https://github.com/nepster-web/gambling-tech)
+[Algorithms](https://github.com/nepster-web/gambling-tech/blob/main/docs/guide/algorithms.md) | [Go back](https://github.com/nepster-web/gambling-tech)
