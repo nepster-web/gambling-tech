@@ -1,5 +1,3 @@
-> This package is under development. Api classes of this application can be changed.
-
 <p align="center">
     <h1 align="center">Gambling Tech on PHP</h1>
 </p>
@@ -16,7 +14,11 @@
 Introduction
 ------------
 
-**Gambling Tech** - ...
+**Gambling Tech** - is a library that provides certified casino algorithms.
+(for example: [RNG](https://en.wikipedia.org/wiki/Random_number_generation), 
+[PFS](https://www.provably.com), 
+[Fisher Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle), etc).
+
 
 Requirements
 ------------
@@ -45,7 +47,29 @@ or add
 :computer: Basic Usage
 ----------------------
 
-...
+**Random generation:**
+```php
+use Gambling\Tech\Random;
+
+Random::getBytes(16); // 3ö1\x18&U\x0Fµòð$ä&ã\x05\x06
+Random::getInteger(0, 100); // 7
+Random::getBoolean(); // false
+Random::getFloat(); // 0.57746288525196
+Random::getString(16); // 3Q989ujqa3CAZl0c
+```
+
+**Shuffling:**
+```php
+use Gambling\Tech\FisherYatesShuffle;
+
+$cards = [0, 1, 2, 3, 4, 5, 6, 7];
+
+$shuffled = (new FisherYatesShuffle())($cards);
+
+$shuffled; // [7, 2, 1, 5, 4, 6, 0, 3]
+```
+
+Read more about other algorithms in the [documentation](./docs/guide/README.md).
 
 
 ### Testing
