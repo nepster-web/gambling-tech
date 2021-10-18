@@ -3,9 +3,6 @@ Rng Till Hundred
 
 ------------------
 
-https://github.com/nepster-web/gambling-tech/blob/main/src/Dice/RngTillHundred.php
-----
-
 
 ```php
 use Gambling\Tech\RngTillHundred;
@@ -17,6 +14,8 @@ $nonce = 1;
 // your lucky number 
 $number = (new RngTillHundred())($serverSeed, $clientSeed, $nonce);
 ```
+
+Implementation in file [dice/RngTillHundred.php](https://github.com/nepster-web/gambling-tech/blob/main/src/Dice/RngTillHundred.php)
 
 <br>
 

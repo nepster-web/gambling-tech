@@ -19,7 +19,7 @@ Gambling Tech algorithms
 
 [ShiftedNumber](./ShiftedNumber.md) - Base value shifting by hash.
 
-[dice/RngTillHundred.md](./dice/RngTillHundred.md) - RNG algorithm for dice with provable fairness.
+[dice/RngTillHundred](./dice/RngTillHundred.md) - RNG algorithm for dice with provable fairness.
 
 <br>
 

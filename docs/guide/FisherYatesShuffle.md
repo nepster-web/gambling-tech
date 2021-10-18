@@ -21,6 +21,8 @@ $shuffled = (new FisherYatesShuffle())($cards);
 $shuffled; // [7, 2, 1, 5, 4, 6, 0, 3]
 ```
 
+Implementation in file [FisherYatesShuffle.php](https://github.com/nepster-web/gambling-tech/blob/main/src/Dice/FisherYatesShuffle.php).
+
 <br>
 
 [Algorithms](https://github.com/nepster-web/gambling-tech/blob/main/docs/guide/algorithms.md) | [Go back](https://github.com/nepster-web/gambling-tech)
