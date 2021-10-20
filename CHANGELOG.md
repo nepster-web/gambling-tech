@@ -8,13 +8,13 @@ A changelog of all notable changes made to this library.
 
 <br>
 
-1.0.0-Alpha -- --, 2021
+1.0.0-Alpha October 20, 2021
 --------------------------
 - *ENH*: add Ci/CI checking
 - *ENH*: improved documentation
 
 
-Release October --, 2021
+Release October 17, 2021
 ------------------------
 - Create guide
 - Create tests
