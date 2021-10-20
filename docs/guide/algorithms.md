@@ -1,9 +1,6 @@
 Gambling Tech algorithms
 ========================
 
-> These are really fair algorithms!
-
-
 ## :book: Guide
 
 * [Guide](./README.md)
@@ -12,6 +9,9 @@ Gambling Tech algorithms
 
 
 ## Algorithms
+
+> These are really fair algorithms!
+
 
 [Random](./random.md) - Generating random values.
 

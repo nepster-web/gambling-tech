@@ -32,7 +32,7 @@ Random::getFloat(); // 0.57746288525196
 Random::getString(16); // 3Q989ujqa3CAZl0c
 ```
 
-Implementation in file [Random.php](https://github.com/nepster-web/gambling-tech/blob/main/src/Random.php).
+Implementation in file [Random.php](https://github.com/nepster-web/gambling-tech/blob/main/src/Random.php)
 
 <br>
 
