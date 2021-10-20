@@ -4,7 +4,7 @@
 
 <p align="center">
     <a href="https://packagist.org/packages/nepster-web/gambling-tech"><img src="https://shields.io/packagist/v/nepster-web/gambling-tech.svg?include_prereleases" alt="Release"></a>
-    <a href="https://travis-ci.org/github/nepster-web/gambling-tech"><img src="https://travis-ci.org/nepster-web/gambling-tech.svg?branch=master" alt="Build"></a>
+    <a href="https://travis-ci.com/github/nepster-web/gambling-tech"><img src="https://travis-ci.org/nepster-web/gambling-tech.svg?branch=master" alt="Build"></a>
     <a href="https://scrutinizer-ci.com/g/nepster-web/gambling-tech/?b=master"><img src="https://scrutinizer-ci.com/g/nepster-web/gambling-tech/badges/coverage.png?b=master" alt="Coverage"></a>
     <a href="https://packagist.org/packages/nepster-web/gambling-tech"><img src="https://img.shields.io/packagist/dt/nepster-web/gambling-tech.svg" alt="Downloads"></a>
     <a href="https://packagist.org/packages/nepster-web/gambling-tech"><img src="https://img.shields.io/packagist/l/nepster-web/gambling-tech" alt="License"></a>
