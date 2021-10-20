@@ -1,11 +1,16 @@
 Shifted number
 ==============
 
-------------------
+Shifts the specified number using a hash.
 
+**Example:**
 
-----
-
+```php
+$number = ((new ShiftedNumber())
+    ->setMin(0)
+    ->setMax(100))
+    (42, 'my_hash');
+```
 
 <br>
 

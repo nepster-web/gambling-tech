@@ -4,14 +4,17 @@ declare(strict_types=1);
 
 namespace Gambling\Tech;
 
+use ErrorException;
+use Exception;
+
 /**
  * Base value shifting by hash
  */
 class ShiftedNumber
 {
-    private float $min = 0;
+    private int $min = 0;
 
-    private float $max = 100;
+    private int $max = 100;
 
     /**
      * @param float $number
@@ -22,14 +25,14 @@ class ShiftedNumber
     {
         $shiftValue = $this->getShiftValue($hash);
 
-        return $this->shift($number, $shiftValue);
+        return (int)$this->shift($number, $shiftValue);
     }
 
     /**
-     * @param float $min
+     * @param int $min
      * @return $this
      */
-    public function setMin(float $min): self
+    public function setMin(int $min): self
     {
         $this->min = $min;
 
@@ -37,10 +40,10 @@ class ShiftedNumber
     }
 
     /**
-     * @param float $max
+     * @param int $max
      * @return $this
      */
-    public function setMax(float $max): self
+    public function setMax(int $max): self
     {
         $this->max = $max;
 
@@ -50,25 +53,40 @@ class ShiftedNumber
     /**
      * @param float $number
      * @param int $shift
-     * @return int
+     * @return float
      */
-    protected function shift(float $number, int $shift): int
+    protected function shift(float $number, int $shift): float
     {
         if ($shift > $this->max) {
             $shift %= ($this->max - $this->min + 1);
         }
 
-        return $number + $shift <= $this->max ?
+        $shift = $shift === 0 ? (int)(7 / 100 * $this->max) : $shift;
+
+        $result = $number + $shift <= $this->max ?
             $number + $shift :
             $this->min + ($number + $shift - $this->max) - 1;
+
+        if ($result < $this->min || $result > $this->max) {
+            $float = round(($this->min / ($this->max + 1)) + M_PI, 5);
+            $percent = (int)mb_substr((string)$float, -2, 2);
+            $result = ($this->min === 0 ? $this->max / 2 : $this->min) + ($percent / 100 * $this->min);
+            $result = $result > $this->max ? $this->max : $result;
+        }
+
+        return $result;
     }
 
     /**
-     * @param string $clientHash
+     * @param string $hash
      * @return int
      */
-    protected function getShiftValue(string $clientHash): int
+    protected function getShiftValue(string $hash): int
     {
-        return (int)hexdec(substr($clientHash, -5));
+        if (preg_match("/^([a-f0-9])$/", $hash) === 0) {
+            $hash = sha1($hash);
+        }
+
+        return (int)hexdec(mb_substr($hash, -5));
     }
 }
