@@ -19,9 +19,11 @@ class FisherYatesShuffle
      */
     public function __invoke(array $array): array
     {
-        foreach ($array as $i => $iValue) {
-            $r = Random::getInteger(0, $i);
-            $tmp = $iValue;
+        $count = count($array);
+
+        for ($i = 0; $i < $count - 1; $i++) {
+            $r = Random::getInteger(0, $count - 1);
+            $tmp = $array[$i];
             $array[$i] = $array[$r];
             $array[$r] = $tmp;
         }
