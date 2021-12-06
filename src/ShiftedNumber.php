@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Gambling\Tech;
 
-use ErrorException;
-use Exception;
-
 /**
  * Base value shifting by hash
  */

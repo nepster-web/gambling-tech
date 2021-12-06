@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Gambling\TechTest;
 
-use Gambling\Tech\ShiftedNumber;
 use PHPUnit\Framework\TestCase;
+use Gambling\Tech\ShiftedNumber;
 
 class ShiftedNumberTest extends TestCase
 {
@@ -33,7 +33,8 @@ class ShiftedNumberTest extends TestCase
         for ($i = 0; $i < 100; ++$i) {
             $number = ((new ShiftedNumber())
                 ->setMin($min)->setMax(1000))($i, sha1(uniqid('', true)));
-            if ($min > $number) { echo $number . ' ';
+            if ($min > $number) {
+                echo $number . ' ';
                 $pinpoint = true;
             }
         }
