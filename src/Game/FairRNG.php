@@ -22,28 +22,22 @@ class FairRNG
 
     /**
      * @param object $condition
-     * @param int $nonce
-     * @param callable $callback
-     * @return object
+     * @return LuckyNumber
      * @throws GamblingTechException
      * @throws InvalidArgumentException
      */
-    public function __invoke(object $condition, int $nonce, callable $callback): object
+    public function __invoke(object $condition): LuckyNumber
     {
-        $seedPair = $this->seedPairGenerator->generationIfNeeded($condition);
+        $seedPair = $this->seedPairGenerator->getCurrentSeedPairOrGenerate($condition);
 
-        $luckyNumber = $this->generateLuckyNumber($seedPair, $nonce);
+        $seedPair = SeedPair::increment($seedPair);
 
-        return $callback($luckyNumber, $seedPair);
-    }
+        $luckyNumber = (new RngTillHundred())(
+            $seedPair->getServerSeed(),
+            $seedPair->getClientSeed(),
+            $seedPair->getNonce()
+        );
 
-    /**
-     * @param SeedPair $seedPair
-     * @param int $nonce
-     * @return float
-     */
-    protected function generateLuckyNumber(SeedPair $seedPair, int $nonce): float
-    {
-        return (new RngTillHundred())($seedPair->getServerSeed(), $seedPair->getClientSeed(), $nonce);
+        return new LuckyNumber($luckyNumber, $seedPair);
     }
 }

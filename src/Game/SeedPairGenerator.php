@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Gambling\Tech\Game;
 
+use Gambling\Tech\Random;
 use Gambling\Tech\Exception\GamblingTechException;
 use Gambling\Tech\Exception\InvalidArgumentException;
-use Gambling\Tech\Random;
 
 class SeedPairGenerator
 {
@@ -26,7 +26,7 @@ class SeedPairGenerator
      * @throws GamblingTechException
      * @throws InvalidArgumentException
      */
-    public function generation(?string $clientSeed = null, ?SeedPair $seedPair = null): SeedPair
+    public function generate(?string $clientSeed = null, ?SeedPair $seedPair = null): SeedPair
     {
         $serverSeed = $seedPair !== null ? $seedPair->getNextServerSeed() : hash('sha256', Random::getString(32));
 
@@ -38,7 +38,9 @@ class SeedPairGenerator
                 Random::getString(16, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
         }
 
-        return $this->createSeedPair($serverSeed, $nextServerSeed, $clientSeed);
+        $nonce = 1; // each new generation resets nonce
+
+        return $this->createSeedPair($serverSeed, $nextServerSeed, $clientSeed, $nonce);
     }
 
     /**
@@ -49,13 +51,13 @@ class SeedPairGenerator
      * @throws GamblingTechException
      * @throws InvalidArgumentException
      */
-    public function generationIfNeeded(object $condition): SeedPair
+    public function getCurrentSeedPairOrGenerate(object $condition): SeedPair
     {
         if ($seed = $this->getCurrentSeedPair($condition)) {
             return $seed;
         }
 
-        return $this->generation();
+        return $this->generate();
     }
 
     /**
@@ -73,10 +75,15 @@ class SeedPairGenerator
      * @param string $serverSeed
      * @param string $nextServerSeed
      * @param string $clientSeed
+     * @param int $nonce
      * @return SeedPair
      */
-    protected function createSeedPair(string $serverSeed, string $nextServerSeed, string $clientSeed): SeedPair
-    {
-        return new SeedPair($serverSeed, $nextServerSeed, $clientSeed);
+    protected function createSeedPair(
+        string $serverSeed,
+        string $nextServerSeed,
+        string $clientSeed,
+        int $nonce
+    ): SeedPair {
+        return new SeedPair($serverSeed, $nextServerSeed, $clientSeed, $nonce);
     }
 }
