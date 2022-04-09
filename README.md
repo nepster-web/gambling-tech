@@ -19,6 +19,8 @@ Introduction
 [PFS](https://www.provably.com), 
 [Fisher Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle), etc).
 
+<br>
+
 <a href="https://itechlabs.com">
     <img align="left" src="./docs/itech-labs.jpg" alt="iTech Labs">
 </a>
@@ -30,7 +32,6 @@ for online gaming worldwide.
 
 [More information](https://itechlabs.com) 
 
-<br clear="left"/>
 
 Requirements
 ------------
