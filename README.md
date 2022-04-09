@@ -19,8 +19,6 @@ Introduction
 [PFS](https://www.provably.com), 
 [Fisher Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle), etc).
 
-
-
 <a href="https://itechlabs.com">
     <img align="left" src="./docs/itech-labs.jpg" alt="iTech Labs">
 </a>
