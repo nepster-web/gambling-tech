@@ -20,6 +20,19 @@ Introduction
 [Fisher Yates](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle), etc).
 
 
+
+<a href="https://itechlabs.com">
+    <img align="left" src="./docs/itech-labs.jpg" alt="iTech Labs">
+</a>
+
+<img src="https://img.shields.io/static/v1?label=Certification passed by&message=iTech Labs&color=success" />
+<br>
+Accredited Laboratory for Online Gaming Certification and Quality Assurance.
+Testing iTech Labs is one of the leading accredited testing laboratories
+for online gaming worldwide. [More information](https://itechlabs.com)...
+
+<br clear="left"/>
+
 Requirements
 ------------
 
