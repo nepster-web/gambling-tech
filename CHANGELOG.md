@@ -10,19 +10,19 @@ A changelog of all notable changes made to this library.
 
 
 1.0.0-Alpha-3 December 06, 2021
---------------------------
+-------------------------------
 - *ENH*: Add game components for easy integration
 
 
-1.0.0-Alpha November 11, 2021
---------------------------
-- *FIX*: Add doc ShiftedNumber
+1.0.0-Alpha-2 November 11, 2021
+-------------------------------
+- *FIX*: Add doc for ShiftedNumber
 - *FIX*: Update FisherYatesShuffle
-- *FIX*: Update documentation
+- *FIX*: Improved documentation
 
 
 1.0.0-Alpha October 20, 2021
---------------------------
+----------------------------
 - *ENH*: Add Ci/CI checking
 - *ENH*: Improved documentation
 
